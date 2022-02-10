@@ -35,7 +35,22 @@ namespace toABMP
                 i2++;
                 if (b == lastbyte)
                 {
-                    bc++;
+                   if (image1.Width -i2==0)
+                    {
+                        RLE.Add(',');
+                        RLE.Add('{');
+                        RLE.AddRange(bc.ToString().ToCharArray());
+                        RLE.Add(',');
+                        RLE.AddRange(lastbyte.ToString().ToCharArray());
+                        RLE.Add('}');
+                        lastbyte = b;
+                        bc = 1;
+
+                    }
+                    else
+                    {
+                        bc++;
+                    }
                 }
                 else
                 {
